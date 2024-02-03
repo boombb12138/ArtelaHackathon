@@ -414,6 +414,25 @@ if(result){
               Sell
             </Button>
           ))}
+   <Button
+     sx={{
+                color: "#ffc0cb",
+                border: "#ffc0cb",
+                width: "100%",
+                background: "rgba(255, 192, 203,.1)",
+                backgroundColor: "rgba(255, 192, 203,.1)",
+                marginY: "8px",
+                "&.MuiButtonBase-root:hover": {
+                  backgroundColor: "rgba(255, 192, 203,.1)",
+                },
+              }}
+              variant="contained"
+            >
+                       <a href="http://swap.xingruizhubao.com" target="_blank">
+                        Try AMM Swap
+                       </a>
+            </Button>
+
         </div>
       </section>
     </section>
