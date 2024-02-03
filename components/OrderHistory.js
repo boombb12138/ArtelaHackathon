@@ -112,7 +112,7 @@ export function OrdersHistoriesTable(props) {
           <TableBody>
             {rows.map((row, index) => (
               <TableRow key={row.name}>
-                <TableCell sx={{ border: "none" }}>{ row.uint256Amount/(10 ** 16)}</TableCell>
+                <TableCell sx={{ border: "none" }}>{ row.uint256Amount/(10 ** 18)}</TableCell>
                 <TableCell sx={{ border: "none" }}>{parseFloat(row.price)}</TableCell>
                 <TableCell sx={{ border: "none" }}>{row.buyOrSell!==null?(row.buyOrSell==0?"Buy":"Sell"):"--"}</TableCell>
                 {/* <DateTableCell

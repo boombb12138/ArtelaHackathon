@@ -4,13 +4,15 @@ import { Snackbar, Alert } from "@mui/material";
 import { createRoot } from "react-dom/client";
 
 function Message(props) {
-  const { content, duration, type } = { ...props };
+  const { content, duration, type ,txHash} = { ...props };
   // 开关控制：默认true,调用时会直接打开
   const [open, setOpen] = useState(true);
   // 关闭消息提示
   const handleClose = (event, reason) => {
     setOpen(false);
   };
+  const href =`https://betanet-scan.artela.network/tx/${txHash}`
+console.log("content",txHash)
   return (
     <Snackbar
       open={open}
@@ -26,7 +28,7 @@ function Message(props) {
       }}
     >
       <Alert severity={type} variant="standard">
-        {content}
+        <a href={href} target="_blank">{content}</a>
       </Alert>
     </Snackbar>
   );
@@ -35,12 +37,15 @@ function Message(props) {
 const message = {
   dom: null,
   // success({ content, duration = 1500 }) {
-  success(content,{duration}={}) {
+  success(content, duration =1500,txHash) {
     // 创建一个dom
     this.dom = document.createElement("div");
+     console.log("duration txHash",duration,txHash)
     // 定义组件，
     const JSXdom = (
-      <Message content={content} duration={duration} type="success"></Message>
+      <Message content={content} duration={duration} type="success" txHash={txHash}>
+
+      </Message>
     );
     // 渲染DOM
     createRoot(this.dom).render(JSXdom);

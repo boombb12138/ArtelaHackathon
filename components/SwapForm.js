@@ -183,6 +183,7 @@ const aspect = new web3.atl.Aspect(aspectAddress);
     console.log(`add limit bill`,amount, price, buyOrSell);
     let op = "0x0002";
     let params = rmPrefix(packLbParams(amount, price, buyOrSell));
+    console.log("params",params)
     let calldata = aspect.operation(op + params).encodeABI();
     const chainId = await web3.eth.getChainId();
     const gasPrice = await web3.eth.getGasPrice();
@@ -211,7 +212,7 @@ const aspect = new web3.atl.Aspect(aspectAddress);
         from: accounts[0],
       });
 if(result){
-message.success(`Transaction:${result}`)
+message.success(`Transaction:${result}`,5500,result)
 }
     } catch (error) {
       console.error("Error sending transaction:", error);
@@ -292,7 +293,7 @@ const removeLmtBill = async (index) => {
     from: metamaskContext.account,
   });
 if(result){
-  message.success(`Remove Limit Bill Success:${result}`)
+  message.success(`Remove Limit Bill Success:${result}`,5500,result)
 
 }
   console.log("Transaction sent:", result);
